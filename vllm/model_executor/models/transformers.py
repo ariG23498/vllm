@@ -172,7 +172,6 @@ class TransformersModel(nn.Module, SupportsQuant, SupportsLoRA):
         Apply the base model tensor parallelization plan to a module.
         Currently only supports linear layers.
         """
-        # print(f"\n\n{get_tensor_model_parallel_world_size()=}\n\n")
         if (self.config.base_model_tp_plan is None
                 and get_tensor_model_parallel_world_size() > 1):
             raise ValueError(
